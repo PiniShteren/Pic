@@ -1,38 +1,75 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  background-color: rgba(0, 0, 255, 0.733);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+/* .navigation{
+  float: inline-end;
+} */
+.background-image-upload{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#input-image-back::before{
+  content: "Add Image";
+  white-space: nowrap;
 }
+#input-image-back{
+ display: none;
+}
+#label-back{
+  border:3px solid black;
+  padding: 1vh;
+  border-radius: 1vh;
+  margin: 1vh;
+  background-color: rgba(0, 0, 255, 0.733);
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+#input-image-back::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(98, 98, 146, 0.863);
+  width: 60vh;
+  height: 40vh;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+#textfield{
+  
+}
+#button-image-back{}
+#login-route{
+  border: none;
+  background: none;
+  color: rgb(226, 226, 228);
+  padding: 1vh;
+}
+#error-login{
+  color: rgb(179, 46, 46);
 }
