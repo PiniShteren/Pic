@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Cookie from 'js-cookie';
 import { TextField } from "@material-ui/core";
 import axios from "axios";
+import user from '../../images/icons/profile-user.svg';
 
 export default function Login(props) {
 	const [flag, setFlag] = useState(true);
@@ -56,11 +57,12 @@ export default function Login(props) {
 				}
 			});
 		}else{
-			alert('Wrong!!')
+			setErrorsignup('Fill the inputs')
 		}
 	}
 	const loginClick = () => {
 		if(email && password) {
+			debugger
 			axios.post('https://node-exmple-ps.herokuapp.com/api/user/check', {
 				email,
 				password
@@ -78,13 +80,15 @@ export default function Login(props) {
 
 	if (flag) {
 		return (
+			<div className="Login">
 			<div className="login-div login">
                         <h1>Login</h1>
+				<img src={user} alt="user" width="50vh" />
 				<form>
 					<TextField id="textfield" type="text" onChange={emailLoginHandler} label="email" />
 					<TextField id="textfield" type="password" onChange={passwordLoginHandler} label="password" />
 					<p id="error-login">{errorlogin}</p>
-					<button onClick={loginClick}>Login</button>
+					<button id="button-login-signup" onClick={loginClick}>Login</button>
 				</form>
 				<p>
 					If you do not have an account yet
@@ -98,17 +102,20 @@ export default function Login(props) {
 					</button>
 				</p>
 			</div>
+			</div>
 		);
 	} else {
 		return (
+			<div className="Login">
 			<div className="signup-div login">
                         <h1>Sign Up</h1>
+				<img src={user} alt="user" width="50vh" />
 				<form>
 					<TextField id="textfield" type="text" onChange={nameHandler} label="username" />
 					<TextField id="textfield" type="text" label="email" onChange={emailSignupHandler} />
 					<TextField id="textfield" type="password" onChange={passwordSignupHandler} label="password" />
 					<p id="error-login">{errorsignup}</p>
-					<button onClick={signupClick}>Sign Up</button>
+					<button id="button-login-signup" onClick={signupClick}>Sign Up</button>
 				</form>
 				<p>
 					If you have an account yet
@@ -121,6 +128,7 @@ export default function Login(props) {
 						login
 					</button>
 				</p>
+			</div>
 			</div>
 		);
 	}
